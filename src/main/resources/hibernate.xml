@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
-    <persistence-unit name="persistenceUnit">
-        <class>com.classfound.feedback.entity.FeedbackEntity</class>
-        <class>com.classfound.feedback.entity.ApplicationEntity</class>
-        <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/classfound_feedback"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="root"/>
-        </properties>
-    </persistence-unit>
-</persistence>
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/classfound_feedback</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <mapping class="com.classfound.feedback.entity.ApplicationEntity"/>
+    <mapping class="com.classfound.feedback.entity.FeedbackEntity"/>
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

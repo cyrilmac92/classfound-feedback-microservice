@@ -11,6 +11,8 @@ public class FeedbackEntity {
     private long feedbackId;
     private String feedbackDescription;
     private String feedbackUserName;
+    private Long appId;
+    private ApplicationEntity application;
 
     @Id
     @Column(name = "feedback_id", nullable = false)
@@ -18,6 +20,7 @@ public class FeedbackEntity {
         return feedbackId;
     }
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public void setFeedbackId(long feedbackId) {
         this.feedbackId = feedbackId;
     }
@@ -42,6 +45,16 @@ public class FeedbackEntity {
         this.feedbackUserName = feedbackUserName;
     }
 
+    @Basic
+    @Column(name = "app_id", nullable = true)
+    public Long getAppId() {
+        return appId;
+    }
+
+    public void setAppId(Long appId) {
+        this.appId = appId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -54,6 +67,7 @@ public class FeedbackEntity {
             return false;
         if (feedbackUserName != null ? !feedbackUserName.equals(that.feedbackUserName) : that.feedbackUserName != null)
             return false;
+        if (appId != null ? !appId.equals(that.appId) : that.appId != null) return false;
 
         return true;
     }
@@ -63,6 +77,17 @@ public class FeedbackEntity {
         int result = (int) (feedbackId ^ (feedbackId >>> 32));
         result = 31 * result + (feedbackDescription != null ? feedbackDescription.hashCode() : 0);
         result = 31 * result + (feedbackUserName != null ? feedbackUserName.hashCode() : 0);
+        result = 31 * result + (appId != null ? appId.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "app_id", referencedColumnName = "app_id", insertable = false, updatable = false)
+    public ApplicationEntity getApplication() {
+        return application;
+    }
+
+    public void setApplication(ApplicationEntity application) {
+        this.application = application;
     }
 }
