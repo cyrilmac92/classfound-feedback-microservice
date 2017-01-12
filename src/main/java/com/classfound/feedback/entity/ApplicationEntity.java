@@ -7,7 +7,7 @@ import java.util.List;
  * Created by philic3 on 8/27/2016.
  */
 @Entity
-@Table(name = "application", schema = "classfound_feedback")
+@Table(name = "application")
 public class ApplicationEntity {
 
 
