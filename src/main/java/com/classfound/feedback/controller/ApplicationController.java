@@ -3,7 +3,9 @@ package com.classfound.feedback.controller;
 import com.classfound.feedback.model.ApplicationModel;
 import com.classfound.feedback.model.GenericResponseModel;
 import com.classfound.feedback.service.ApplicationService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,11 +23,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping(value = "/api/v1/application")
 public class ApplicationController {
 
-    /**
-     * Autowiring application service.
-     */
     @Autowired
-    ApplicationService applicationService;
+    private ApplicationService applicationService;
+
+    private static final Logger LOG = Logger.getLogger("ApplicationController");
 
     /**
      * The endpoint that registers an application.
@@ -34,6 +35,7 @@ public class ApplicationController {
      */
     @RequestMapping(path = "/register", consumes = "application/json", method = POST)
     GenericResponseModel registerApplication(@RequestBody ApplicationModel applicationModel) {
+        LOG.info("ApplicationController:registerApplication Enter");
         GenericResponseModel genericResponseModel = new GenericResponseModel();
         try {
             applicationService.registerApplication(applicationModel);
@@ -41,7 +43,7 @@ public class ApplicationController {
             genericResponseModel.setMessage(APPLICATION_REGISTERED_SUCCESS_MESSAGE);
         } catch (Exception e) {
            genericResponseModel.setMessage(e.getMessage());
-            genericResponseModel.setStatus(ERROR_STATUS);
+           genericResponseModel.setStatus(ERROR_STATUS);
         }
         return genericResponseModel;
     }

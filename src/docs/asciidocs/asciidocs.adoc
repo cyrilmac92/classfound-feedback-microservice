@@ -1,0 +1,12 @@
+[[resources-register-application]]
+== Register an application
+ 
+A `POST` request to register an application.
+
+=== Example HTTP Request
+
+include::{snippets}/application/http-request.adoc[]
+
+=== Example response
+
+include::{snippets}/application/http-response.adoc[]
