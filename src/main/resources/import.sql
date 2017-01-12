@@ -1,0 +1,1 @@
+INSERT INTO application (app_id, app_key, app_owner, app_name) VALUES (1, 'app', 'own', 'name'), (3, 'ap', 'own', 'name');

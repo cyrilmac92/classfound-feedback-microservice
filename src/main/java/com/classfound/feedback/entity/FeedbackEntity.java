@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by philic3 on 8/27/2016.
  */
 @Entity
-@Table(name = "feedback", schema = "classfound_feedback")
+@Table(name = "feedback")
 public class FeedbackEntity {
     private long feedbackId;
     private String feedbackDescription;
