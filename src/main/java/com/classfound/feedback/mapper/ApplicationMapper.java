@@ -13,8 +13,8 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface ApplicationMapper {
     ApplicationMapper INSTANCE = Mappers.getMapper( ApplicationMapper.class );
-    @Mapping(source = "name", target = "appName")
-    @Mapping(source = "key", target = "appKey")
-    @Mapping(source = "owner", target = "appOwner")
+    @Mapping(source = "applicationName", target = "appName")
+    /*@Mapping(source = "applicationKey", target = "appKey")*/
+    /*@Mapping(source = "applicationOwner", target = "appOwner")*/
     ApplicationEntity applicationModelToApplicationEntity(ApplicationModel applicationModel);
 }

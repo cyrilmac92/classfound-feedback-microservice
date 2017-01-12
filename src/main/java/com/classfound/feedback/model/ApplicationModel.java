@@ -13,6 +13,7 @@ package com.classfound.feedback.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+
 /**
  * The model class that represents the application details.
  * Created by philic3 on 8/27/2016.
@@ -21,35 +22,43 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 public class ApplicationModel {
 
     @JsonProperty(value = "applicationName")
-    private String name;
+    private String applicationName;
 
     @JsonProperty(value = "applicationKey")
-    private String key;
+    private String applicationKey;
 
     @JsonProperty(value = "applicationOwner")
-    private String owner;
+    private String applicationOwner;
 
-    public String getName() {
-        return name;
+    public ApplicationModel (){}
+
+    public ApplicationModel (String applicationName, String applicationKey, String applicationOwner) {
+        this.applicationName = applicationName;
+        this.applicationKey = applicationKey;
+        this.applicationOwner = applicationOwner;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getApplicationName() {
+        return applicationName;
     }
 
-    public String getKey() {
-        return key;
+    public void setApplicationName(String applicationName) {
+        this.applicationName = applicationName;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public String getApplicationKey() {
+        return applicationKey;
     }
 
-    public String getOwner() {
-        return owner;
+    public void setApplicationKey(String applicationKey) {
+        this.applicationKey = applicationKey;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public String getApplicationOwner() {
+        return applicationOwner;
+    }
+
+    public void setApplicationOwner(String applicationOwner) {
+        this.applicationOwner = applicationOwner;
     }
 }

@@ -6,3 +6,4 @@ mvnw.cmd
 lib/
 target/
 classfound-feedback-service.iml
+src/main/resources/static/
